@@ -1,14 +1,23 @@
 ﻿/*Киселева Полина 9 группа
 Реализовать шаблон класса двусвязный (двунаправленный) список DoublyLinked List<X>, хранящий элементы произвольного типа.
 Класс должен содержать методы, перечисленные в варианте 1C.*/
+#define DEBUG true
 #include "DoublyLinkedList.h"
 #include "Double1.h"
 #include "Menu.h"
 #include <Windows.h>
+#if DEBUG
+#include "Double1Test.h"
+#endif
 
 void MainMenu();
 
 int main() {
+#if DEBUG
+	Double1Test test;
+	test.run_tests();
+#endif
+
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	MainMenu();
