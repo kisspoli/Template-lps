@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <iostream>
 #include "DoublyLinkedList.h"
 
@@ -12,12 +12,12 @@ template <typename X>
 void ListMenu(DoublyLinkedList<X> list) {
     int menu;
     do {
-    std::cout << "\n1. Ñ÷èòàòü ñïèñîê èç ôàéëà\n" << "2. Âûâåñòè ñïèñîê â ôàéë\n" <<
-        "3. Ñ÷èòàòü ñïèñîê ñ êîíñîëè\n" << "4. Âûâåñòè ñïèñîê íà êîíñîëü\n" <<
-        "5. Äîáàâèòü ýëåìåíò â íà÷àëî ñïèñêà\n" << "6. Äîáàâèòü ýëåìåíò â êîíåö ñïèñêà\n" << "7. Î÷èñòèòü ñïèñîê\n" <<
-        "8. Íàéòè èíäåêñ çíà÷åíèÿ â ñïèñêå\n" << "9. Îïðåäåëèòü, ÿâëÿåòñÿ ëè ñïèñîê ñèììåòðè÷íûì\n" <<
-        "10. Îïðåäåëèòü êîëè÷åñòâî óíèêàëüíûõ çíà÷åíèé â ñïèñêå\n" << "11. Ïåðåâåðíóòü ñïèñîê\n" <<
-        "Äðóãîå ÷èñëî. Íàçàä\n--> ";
+    std::cout << "\n1. Ð¡Ñ‡Ð¸Ñ‚Ð°Ñ‚ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº Ð¸Ð· Ñ„Ð°Ð¹Ð»Ð°\n" << "2. Ð’Ñ‹Ð²ÐµÑÑ‚Ð¸ ÑÐ¿Ð¸ÑÐ¾Ðº Ð² Ñ„Ð°Ð¹Ð»\n" <<
+        "3. Ð¡Ñ‡Ð¸Ñ‚Ð°Ñ‚ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº Ñ ÐºÐ¾Ð½ÑÐ¾Ð»Ð¸\n" << "4. Ð’Ñ‹Ð²ÐµÑÑ‚Ð¸ ÑÐ¿Ð¸ÑÐ¾Ðº Ð½Ð° ÐºÐ¾Ð½ÑÐ¾Ð»ÑŒ\n" <<
+        "5. Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð² Ð½Ð°Ñ‡Ð°Ð»Ð¾ ÑÐ¿Ð¸ÑÐºÐ°\n" << "6. Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð² ÐºÐ¾Ð½ÐµÑ† ÑÐ¿Ð¸ÑÐºÐ°\n" << "7. ÐžÑ‡Ð¸ÑÑ‚Ð¸Ñ‚ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº\n" <<
+        "8. ÐÐ°Ð¹Ñ‚Ð¸ Ð¸Ð½Ð´ÐµÐºÑ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Ð² ÑÐ¿Ð¸ÑÐºÐµ\n" << "9. ÐžÐ¿Ñ€ÐµÐ´ÐµÐ»Ð¸Ñ‚ÑŒ, ÑÐ²Ð»ÑÐµÑ‚ÑÑ Ð»Ð¸ ÑÐ¿Ð¸ÑÐ¾Ðº ÑÐ¸Ð¼Ð¼ÐµÑ‚Ñ€Ð¸Ñ‡Ð½Ñ‹Ð¼\n" <<
+        "10. ÐžÐ¿Ñ€ÐµÐ´ÐµÐ»Ð¸Ñ‚ÑŒ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑƒÐ½Ð¸ÐºÐ°Ð»ÑŒÐ½Ñ‹Ñ… Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ð¹ Ð² ÑÐ¿Ð¸ÑÐºÐµ\n" << "11. ÐŸÐµÑ€ÐµÐ²ÐµÑ€Ð½ÑƒÑ‚ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº\n" <<
+        "Ð”Ñ€ÑƒÐ³Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾. ÐÐ°Ð·Ð°Ð´\n--> ";
         while (!(std::cin >> menu)) {
             std::cin.clear();
             std::cin.ignore(1024, '\n');
@@ -26,7 +26,7 @@ void ListMenu(DoublyLinkedList<X> list) {
         switch (menu) {
         case 1: {
             std::string file_name;
-            std::cout << "Ââåäèòå èìÿ ôàéëà: ";
+            std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ Ñ„Ð°Ð¹Ð»Ð°: ";
             std::cin >> file_name;
             std::ifstream in(file_name);
             if (in) {
@@ -34,16 +34,16 @@ void ListMenu(DoublyLinkedList<X> list) {
                     list.Read(in);
                 }
                 catch (std::exception) {
-                    std::cerr << "Íåêîððåêòíûå äàííûå â ôàéëå.\n";
+                    std::cerr << "ÐÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ñ‹Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð² Ñ„Ð°Ð¹Ð»Ðµ.\n";
                 }
             }
             else
-                std::cout << "Ôàéë íå íàéäåí.\n";
+                std::cout << "Ð¤Ð°Ð¹Ð» Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½.\n";
             break;
         }
         case 2: {
             std::string file_name;
-            std::cout << "Ââåäèòå èìÿ ôàéëà: ";
+            std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ Ñ„Ð°Ð¹Ð»Ð°: ";
             std::cin >> file_name;
             std::ofstream out(file_name);
             if (out) {
@@ -51,27 +51,27 @@ void ListMenu(DoublyLinkedList<X> list) {
                     Print(out, list);
                 }
                 catch (std::exception) {
-                    std::cerr << "Íå óäàëîñü çàïèñàòü äàííûå â ôàéë.\n";
+                    std::cerr << "ÐÐµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð·Ð°Ð¿Ð¸ÑÐ°Ñ‚ÑŒ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð² Ñ„Ð°Ð¹Ð».\n";
                 }
             }
             else
-                std::cout << "Ôàéë íå íàéäåí.\n";
+                std::cout << "Ð¤Ð°Ð¹Ð» Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½.\n";
             break;
         }
         case 3:
-            std::cout << "Ââîäèòå ñïèñîê: ";
+            std::cout << "Ð’Ð²Ð¾Ð´Ð¸Ñ‚Ðµ ÑÐ¿Ð¸ÑÐ¾Ðº: ";
             try {
                 list.Read(std::cin);
             }
             catch (std::exception) {
-                std::cerr << "Íåêîððåêòíûå äàííûå â ââîäå.\n";
+                std::cerr << "ÐÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ñ‹Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð² Ð²Ð²Ð¾Ð´Ðµ.\n";
             }
             break;
         case 4:
             Print(std::cout, list);
             break;
         case 5: {
-            std::cout << "Ââåäèòå ýëåìåíò: ";
+            std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚: ";
             try {
                 std::string input;
                 std::getline(std::cin, input);
@@ -81,12 +81,12 @@ void ListMenu(DoublyLinkedList<X> list) {
                 list.AddToBegin(value);
             }
             catch (std::exception) {
-                std::cerr << "Íåêîððåêòíûå äàííûå â ââîäå.\n";
+                std::cerr << "ÐÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ñ‹Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð² Ð²Ð²Ð¾Ð´Ðµ.\n";
             }
             break;
         }
         case 6: {
-            std::cout << "Ââåäèòå ýëåìåíò: ";
+            std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚: ";
             try {
                 std::string input;
                 std::getline(std::cin, input);
@@ -96,7 +96,7 @@ void ListMenu(DoublyLinkedList<X> list) {
                 list.AddToEnd(value);
             }
             catch (std::exception) {
-                std::cerr << "Íåêîððåêòíûå äàííûå â ââîäå.\n";
+                std::cerr << "ÐÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ñ‹Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð² Ð²Ð²Ð¾Ð´Ðµ.\n";
             }
             break;
         }
@@ -104,7 +104,7 @@ void ListMenu(DoublyLinkedList<X> list) {
             list.Clear();
             break;
         case 8: {
-            std::cout << "Ââåäèòå ýëåìåíò: ";
+            std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚: ";
             try {
                 std::string input;
                 std::getline(std::cin, input);
@@ -113,24 +113,24 @@ void ListMenu(DoublyLinkedList<X> list) {
                 ss >> value;
                 int index = list.FindIndex(value);
                 if (index == -1)
-                    std::cout << "Òàêîãî ýëåìåíòà íåò.\n";
+                    std::cout << "Ð¢Ð°ÐºÐ¾Ð³Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° Ð½ÐµÑ‚.\n";
                 else
-                    std::cout << "Èíäåêñ ýëåìåíòà: " << index << '\n';
+                    std::cout << "Ð˜Ð½Ð´ÐµÐºÑ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°: " << index << '\n';
             }
             catch (std::exception) {
-                std::cerr << "Íåêîððåêòíûå äàííûå â ââîäå.\n";
+                std::cerr << "ÐÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ñ‹Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð² Ð²Ð²Ð¾Ð´Ðµ.\n";
             }
             break;
         }
         case 9:
             if(list.IsSymmetric())
-                std::cout << "Ñïèñîê ñèììåòðè÷åí.\n";
+                std::cout << "Ð¡Ð¿Ð¸ÑÐ¾Ðº ÑÐ¸Ð¼Ð¼ÐµÑ‚Ñ€Ð¸Ñ‡ÐµÐ½.\n";
             else
-                std::cout << "Ñïèñîê íå ñèììåòðè÷åí.\n";
+                std::cout << "Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð½Ðµ ÑÐ¸Ð¼Ð¼ÐµÑ‚Ñ€Ð¸Ñ‡ÐµÐ½.\n";
             break;
         case 10: {
             int unique = list.UniqueValuesCount();
-            std::cout << "Óíèêàëüíûõ çíà÷åíèé â ñïèñêå: " << unique << '\n';
+            std::cout << "Ð£Ð½Ð¸ÐºÐ°Ð»ÑŒÐ½Ñ‹Ñ… Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ð¹ Ð² ÑÐ¿Ð¸ÑÐºÐµ: " << unique << '\n';
             break;
         }
         case 11:
@@ -145,7 +145,7 @@ void ListMenu(DoublyLinkedList<X> list) {
 template <typename X>
 void Print(std::ostream& stream, const DoublyLinkedList<X>& list) {
     if (list.getSize() == 0)
-        stream << "Ñïèñîê ïóñò\n";
+        stream << "Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð¿ÑƒÑÑ‚\n";
     else
         list.Print(stream);
 }

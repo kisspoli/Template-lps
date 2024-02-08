@@ -1,16 +1,16 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include <string>
 #include <sstream>
 
 template <typename X>
-class DoublyLinkedList //класс для двунаправленного списка
+class DoublyLinkedList //РєР»Р°СЃСЃ РґР»СЏ РґРІСѓРЅР°РїСЂР°РІР»РµРЅРЅРѕРіРѕ СЃРїРёСЃРєР°
 {
-    struct Node { //структура для одного узла
+    struct Node { //СЃС‚СЂСѓРєС‚СѓСЂР° РґР»СЏ РѕРґРЅРѕРіРѕ СѓР·Р»Р°
         X data; 
         Node* next;
         Node* prev;
-        Node(X _data, Node* _next, Node* _prev) :data(_data), next(_next), prev(_prev){ //конструктор
+        Node(X _data, Node* _next, Node* _prev) :data(_data), next(_next), prev(_prev){ //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
             if (next)
                 next->prev = this;
             if (prev)
@@ -33,39 +33,39 @@ public:
     bool IsSymmetric();
     int getSize() const;
     int UniqueValuesCount();
-    class Iterator { //класс для перемещения по списку
+    class Iterator { //РєР»Р°СЃСЃ РґР»СЏ РїРµСЂРµРјРµС‰РµРЅРёСЏ РїРѕ СЃРїРёСЃРєСѓ
         Node* currentNode;
     public:
         Iterator() :currentNode(nullptr) {};
         Iterator(Node* p) : currentNode(p) {};
-        Iterator& operator++() { currentNode = currentNode->next; return *this; } //переход к следующему элементу ++i 
-        Iterator& operator++(int) { currentNode = currentNode->next; return *this; } //переход к следующему элементу i++ 
-        Iterator& operator=(const Iterator& it) { currentNode = it.currentNode; return *this; } //присваивание
-        bool operator==(const Iterator& it) const { return currentNode == it.currentNode; } //сравнение
-        bool operator!=(const Iterator& it) const { return currentNode != it.currentNode; } //сравнение
-        X& operator*() { return currentNode->data; } //разыменование
+        Iterator& operator++() { currentNode = currentNode->next; return *this; } //РїРµСЂРµС…РѕРґ Рє СЃР»РµРґСѓСЋС‰РµРјСѓ СЌР»РµРјРµРЅС‚Сѓ ++i 
+        Iterator& operator++(int) { currentNode = currentNode->next; return *this; } //РїРµСЂРµС…РѕРґ Рє СЃР»РµРґСѓСЋС‰РµРјСѓ СЌР»РµРјРµРЅС‚Сѓ i++ 
+        Iterator& operator=(const Iterator& it) { currentNode = it.currentNode; return *this; } //РїСЂРёСЃРІР°РёРІР°РЅРёРµ
+        bool operator==(const Iterator& it) const { return currentNode == it.currentNode; } //СЃСЂР°РІРЅРµРЅРёРµ
+        bool operator!=(const Iterator& it) const { return currentNode != it.currentNode; } //СЃСЂР°РІРЅРµРЅРёРµ
+        X& operator*() { return currentNode->data; } //СЂР°Р·С‹РјРµРЅРѕРІР°РЅРёРµ
     };
-    Iterator& begin() const { return *(new Iterator(first)); } //итератор на начало
-    Iterator& end() const { return *(new Iterator(last->next)); } //итератор на конец
-    friend std::ostream& operator<<(std::ostream& out, const DoublyLinkedList<X>& list); //оператор вывода
-    friend std::istream& operator>>(std::istream& in, DoublyLinkedList<X>& list); //оператор ввода
+    Iterator& begin() const { return *(new Iterator(first)); } //РёС‚РµСЂР°С‚РѕСЂ РЅР° РЅР°С‡Р°Р»Рѕ
+    Iterator& end() const { return *(new Iterator(last->next)); } //РёС‚РµСЂР°С‚РѕСЂ РЅР° РєРѕРЅРµС†
+    friend std::ostream& operator<<(std::ostream& out, const DoublyLinkedList<X>& list); //РѕРїРµСЂР°С‚РѕСЂ РІС‹РІРѕРґР°
+    friend std::istream& operator>>(std::istream& in, DoublyLinkedList<X>& list); //РѕРїРµСЂР°С‚РѕСЂ РІРІРѕРґР°
 };
 
 template<typename X>
-DoublyLinkedList<X>::DoublyLinkedList() { //конструктор
+DoublyLinkedList<X>::DoublyLinkedList() { //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
     first = last = nullptr;
     size = 0;
 }
 
 template<typename X>
-DoublyLinkedList<X>::~DoublyLinkedList() { //деструктор
+DoublyLinkedList<X>::~DoublyLinkedList() { //РґРµСЃС‚СЂСѓРєС‚РѕСЂ
     Clear();
     delete first;
     delete last;
 }
 
 template<typename X>
-void DoublyLinkedList<X>::AddToBegin(X _data) { //добавление элемента в начало списка
+void DoublyLinkedList<X>::AddToBegin(X _data) { //РґРѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РІ РЅР°С‡Р°Р»Рѕ СЃРїРёСЃРєР°
     Node* newNode = new Node(_data, first, nullptr);
     if (size == 0)
         this->last = newNode;
@@ -76,7 +76,7 @@ void DoublyLinkedList<X>::AddToBegin(X _data) { //добавление элемента в начало с
 }
 
 template<typename X>
-void DoublyLinkedList<X>::AddToEnd(X _data) { //добавление элемента в конец списка
+void DoublyLinkedList<X>::AddToEnd(X _data) { //РґРѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РІ РєРѕРЅРµС† СЃРїРёСЃРєР°
     Node* newNode = new Node(_data, nullptr, last);
     if (size == 0)
         this->first = newNode;
@@ -87,17 +87,17 @@ void DoublyLinkedList<X>::AddToEnd(X _data) { //добавление элемента в конец спис
 }
 
 template<typename X>
-void DoublyLinkedList<X>::Print(std::ostream& stream) const { //показ всех элементов
+void DoublyLinkedList<X>::Print(std::ostream& stream) const { //РїРѕРєР°Р· РІСЃРµС… СЌР»РµРјРµРЅС‚РѕРІ
     operator<<<X>(stream, *this);
 }
 
 template<typename X>
-void DoublyLinkedList<X>::Read(std::istream& stream) { //чтение из потока
+void DoublyLinkedList<X>::Read(std::istream& stream) { //С‡С‚РµРЅРёРµ РёР· РїРѕС‚РѕРєР°
     operator>><X>(stream, *this);
 }
 
 template <typename X>
-std::ostream& operator<<(std::ostream& out, const DoublyLinkedList<X>& list) { //оператор вывода
+std::ostream& operator<<(std::ostream& out, const DoublyLinkedList<X>& list) { //РѕРїРµСЂР°С‚РѕСЂ РІС‹РІРѕРґР°
     if (list.getSize() != 0) {
         for (typename DoublyLinkedList<X>::Iterator it = list.begin(); it != list.end(); it++) {
             out << *it << " ";
@@ -107,7 +107,7 @@ std::ostream& operator<<(std::ostream& out, const DoublyLinkedList<X>& list) { /
 }
 
 template <typename X>
-std::istream& operator>>(std::istream& in, DoublyLinkedList<X>& list) //оператор ввода
+std::istream& operator>>(std::istream& in, DoublyLinkedList<X>& list) //РѕРїРµСЂР°С‚РѕСЂ РІРІРѕРґР°
 {
     list.Clear();
     std::string input;
@@ -123,7 +123,7 @@ std::istream& operator>>(std::istream& in, DoublyLinkedList<X>& list) //оператор
 }
 
 template<typename X>
-void DoublyLinkedList<X>::Clear() { //очистка списка
+void DoublyLinkedList<X>::Clear() { //РѕС‡РёСЃС‚РєР° СЃРїРёСЃРєР°
     Node* p = this->first;
     while (p != nullptr) {
         p = p->next;
@@ -135,7 +135,7 @@ void DoublyLinkedList<X>::Clear() { //очистка списка
 }
 
 template<typename X>
-int DoublyLinkedList<X>::FindIndex(X _data) { //поиск индекса
+int DoublyLinkedList<X>::FindIndex(X _data) { //РїРѕРёСЃРє РёРЅРґРµРєСЃР°
     int index = 0;
     Node* p = this->first;
     bool found = false;
@@ -150,7 +150,7 @@ int DoublyLinkedList<X>::FindIndex(X _data) { //поиск индекса
 }
 
 template<typename X>
-bool DoublyLinkedList<X>::IsSymmetric(){ //проверка является ли список симметричным
+bool DoublyLinkedList<X>::IsSymmetric(){ //РїСЂРѕРІРµСЂРєР° СЏРІР»СЏРµС‚СЃСЏ Р»Рё СЃРїРёСЃРѕРє СЃРёРјРјРµС‚СЂРёС‡РЅС‹Рј
     bool result = true;
     int count = (size % 2 == 0) ? size / 2 : size / 2 + 1;
     Node* i = this->first, *j = this->last;
@@ -170,7 +170,7 @@ int DoublyLinkedList<X>::getSize() const {
 }
 
 template<typename X>
-int DoublyLinkedList<X>::UniqueValuesCount() { //поиск количества уникальных элементов
+int DoublyLinkedList<X>::UniqueValuesCount() { //РїРѕРёСЃРє РєРѕР»РёС‡РµСЃС‚РІР° СѓРЅРёРєР°Р»СЊРЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ
     DoublyLinkedList<X> unique_values;
     Node* p = this->first;
     while (p != nullptr) {
@@ -183,7 +183,7 @@ int DoublyLinkedList<X>::UniqueValuesCount() { //поиск количества уникальных эле
 
 
 template<typename X>
-void DoublyLinkedList<X>::Reverse() { //изменение порядка элементов на обратный
+void DoublyLinkedList<X>::Reverse() { //РёР·РјРµРЅРµРЅРёРµ РїРѕСЂСЏРґРєР° СЌР»РµРјРµРЅС‚РѕРІ РЅР° РѕР±СЂР°С‚РЅС‹Р№
     Node* p = nullptr;
     Node* q = this->first;
     while (q != nullptr) {

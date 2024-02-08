@@ -1,14 +1,14 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include <fstream>
 #include <string>
 
 class Double1 {
-	unsigned int integer; //целая часть
-	unsigned int fractional; //дробная часть
-	unsigned int zeros_count; //количество нулей
-	bool minus_sign; // знак (есть минус или нет)
-	void strip_zeros(); //удаление лишних нулей в конце
+	unsigned int integer; //С†РµР»Р°СЏ С‡Р°СЃС‚СЊ
+	unsigned int fractional; //РґСЂРѕР±РЅР°СЏ С‡Р°СЃС‚СЊ
+	unsigned int zeros_count; //РєРѕР»РёС‡РµСЃС‚РІРѕ РЅСѓР»РµР№
+	bool minus_sign; // Р·РЅР°Рє (РµСЃС‚СЊ РјРёРЅСѓСЃ РёР»Рё РЅРµС‚)
+	void strip_zeros(); //СѓРґР°Р»РµРЅРёРµ Р»РёС€РЅРёС… РЅСѓР»РµР№ РІ РєРѕРЅС†Рµ
 	void read(std::string input); 
 public:
 	Double1();
@@ -33,6 +33,6 @@ public:
 	bool operator>=(const Double1& val);
 	bool operator==(const Double1& val);
 	bool operator!=(const Double1& val);
-	friend std::ostream& operator<<(std::ostream& out, const Double1& double1); //новое
-	friend std::istream& operator>>(std::istream& in, Double1& double1); //новое
+	friend std::ostream& operator<<(std::ostream& out, const Double1& double1); //РЅРѕРІРѕРµ
+	friend std::istream& operator>>(std::istream& in, Double1& double1); //РЅРѕРІРѕРµ
 };

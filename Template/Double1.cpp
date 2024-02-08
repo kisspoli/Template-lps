@@ -1,7 +1,7 @@
-#include "Double1.h"
+п»ї#include "Double1.h"
 #include <sstream>
 
-int my_pow(int a, unsigned int p) { //функция возведения в степень
+int my_pow(int a, unsigned int p) { //С„СѓРЅРєС†РёСЏ РІРѕР·РІРµРґРµРЅРёСЏ РІ СЃС‚РµРїРµРЅСЊ
 	int result = 1;
 	while (p) {
 		result *= a;
@@ -10,7 +10,7 @@ int my_pow(int a, unsigned int p) { //функция возведения в степень
 	return result;
 }
 
-unsigned int digits_count(int number) { //функция подсчета количества цифр
+unsigned int digits_count(int number) { //С„СѓРЅРєС†РёСЏ РїРѕРґСЃС‡РµС‚Р° РєРѕР»РёС‡РµСЃС‚РІР° С†РёС„СЂ
 	if (number == 0)
 		return 1;
 	else {
@@ -23,7 +23,7 @@ unsigned int digits_count(int number) { //функция подсчета количества цифр
 	}
 }
 
-Double1::Double1() //конструктор по умолчанию 
+Double1::Double1() //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ 
 {
 	integer = 0;
 	fractional = 0;
@@ -31,7 +31,7 @@ Double1::Double1() //конструктор по умолчанию
 	minus_sign = false;
 }
 
-//конструктор с параметрами
+//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 Double1::Double1(unsigned int _integer, unsigned int _fractional, unsigned int _zeros_count, bool _minus_sign) {
 	this->integer = _integer;
 	this->fractional = _fractional;
@@ -41,18 +41,18 @@ Double1::Double1(unsigned int _integer, unsigned int _fractional, unsigned int _
 }
 
 
-unsigned int Double1::frac_digits_count() const //количество цифр в дробной части
+unsigned int Double1::frac_digits_count() const //РєРѕР»РёС‡РµСЃС‚РІРѕ С†РёС„СЂ РІ РґСЂРѕР±РЅРѕР№ С‡Р°СЃС‚Рё
 {
 	return digits_count(fractional) + zeros_count;
 }
 
-Double1 Double1::abs() const { //функция модуля
+Double1 Double1::abs() const { //С„СѓРЅРєС†РёСЏ РјРѕРґСѓР»СЏ
 	Double1 result = *this;
 	result.minus_sign = false;
 	return result;
 }
 
-void Double1::strip_zeros() { //функция удаления лишних нулей в конце (убрала приведение к строковому типу)
+void Double1::strip_zeros() { //С„СѓРЅРєС†РёСЏ СѓРґР°Р»РµРЅРёСЏ Р»РёС€РЅРёС… РЅСѓР»РµР№ РІ РєРѕРЅС†Рµ (СѓР±СЂР°Р»Р° РїСЂРёРІРµРґРµРЅРёРµ Рє СЃС‚СЂРѕРєРѕРІРѕРјСѓ С‚РёРїСѓ)
 	if (this->fractional == 0) {
 		zeros_count = 0;
 	}
@@ -64,10 +64,10 @@ void Double1::strip_zeros() { //функция удаления лишних нулей в конце (убрала пр
 		this->minus_sign = false;
 }
 
-void Double1::read(std::string input) { //функция чтения числа из строки
+void Double1::read(std::string input) { //С„СѓРЅРєС†РёСЏ С‡С‚РµРЅРёСЏ С‡РёСЃР»Р° РёР· СЃС‚СЂРѕРєРё
 	if (input[0] == '-') {
 		minus_sign = true;
-		input.erase(0, 1); //функция удаления символов (начальный индекс, количество удаляемых символов)
+		input.erase(0, 1); //С„СѓРЅРєС†РёСЏ СѓРґР°Р»РµРЅРёСЏ СЃРёРјРІРѕР»РѕРІ (РЅР°С‡Р°Р»СЊРЅС‹Р№ РёРЅРґРµРєСЃ, РєРѕР»РёС‡РµСЃС‚РІРѕ СѓРґР°Р»СЏРµРјС‹С… СЃРёРјРІРѕР»РѕРІ)
 	}
 	else
 		minus_sign = false;
@@ -75,7 +75,7 @@ void Double1::read(std::string input) { //функция чтения числа из строки
 		std::string token;
 		std::istringstream ss(input);
 		std::getline(ss, token, '.');
-		integer = std::stoul(token); //преобразует последовательность символов в длинное целое без знака.
+		integer = std::stoul(token); //РїСЂРµРѕР±СЂР°Р·СѓРµС‚ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ СЃРёРјРІРѕР»РѕРІ РІ РґР»РёРЅРЅРѕРµ С†РµР»РѕРµ Р±РµР· Р·РЅР°РєР°.
 		std::getline(ss, token);
 		fractional = std::stoul(token);
 		this->strip_zeros();
@@ -94,32 +94,32 @@ void Double1::read(std::string input) { //функция чтения числа из строки
 	}
 }
 
-void Double1::read() //функция чтения с консоли
+void Double1::read() //С„СѓРЅРєС†РёСЏ С‡С‚РµРЅРёСЏ СЃ РєРѕРЅСЃРѕР»Рё
 {
 	std::string input;
 	std::cin >> input;
 	read(input);
 }
 
-void Double1::read_f(std::ifstream& file) //функция чтения из файла
+void Double1::read_f(std::ifstream& file) //С„СѓРЅРєС†РёСЏ С‡С‚РµРЅРёСЏ РёР· С„Р°Р№Р»Р°
 {
 	std::string input;
 	file >> input;
 	read(input);
 }
 
-void Double1::display() //функция вывода на консоль
+void Double1::display() //С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РЅР° РєРѕРЅСЃРѕР»СЊ
 {
 	std::cout << to_string();
 }
 
-void Double1::display_f(std::string& file_name) //функция вывода в файл
+void Double1::display_f(std::string& file_name) //С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РІ С„Р°Р№Р»
 {
 	std::ofstream file(file_name);
 	file << to_string();
 }
 
-std::string Double1::to_string() const //функция преобразования к строковому типу
+std::string Double1::to_string() const //С„СѓРЅРєС†РёСЏ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ Рє СЃС‚СЂРѕРєРѕРІРѕРјСѓ С‚РёРїСѓ
 {	
 	std::string value = "";
 	if (this->minus_sign)
@@ -134,7 +134,7 @@ std::string Double1::to_string() const //функция преобразования к строковому тип
 	return value;
 }
 
-Double1 Double1::operator+(const Double1& val) //перегрузка +
+Double1 Double1::operator+(const Double1& val) //РїРµСЂРµРіСЂСѓР·РєР° +
 {
 	Double1 result, tmp_val = val;
 	if (this->minus_sign && !tmp_val.minus_sign) {
@@ -176,7 +176,7 @@ Double1 Double1::operator+(const Double1& val) //перегрузка +
 	}
 }
 
-Double1 Double1::operator-(const Double1& val) //перегрузка -
+Double1 Double1::operator-(const Double1& val) //РїРµСЂРµРіСЂСѓР·РєР° -
 {
 	Double1 result, tmp_val = val;
 	if (*this < tmp_val) {
@@ -222,7 +222,7 @@ Double1 Double1::operator-(const Double1& val) //перегрузка -
 	}
 }
 
-Double1 Double1::operator*(const Double1& val) //перегрузка *
+Double1 Double1::operator*(const Double1& val) //РїРµСЂРµРіСЂСѓР·РєР° *
 {
 	Double1 result, tmp_val = val;
 	if (this->minus_sign && tmp_val.minus_sign) {
@@ -250,14 +250,14 @@ Double1 Double1::operator*(const Double1& val) //перегрузка *
 			this->fractional *= pow_result;
 		}
 
-		// предствляем как (a+b) * (c+d), раскладываем в a*c+a*d+b*c+b*d, где a и c - целые части, b и d - дробные
+		// РїСЂРµРґСЃС‚РІР»СЏРµРј РєР°Рє (a+b) * (c+d), СЂР°СЃРєР»Р°РґС‹РІР°РµРј РІ a*c+a*d+b*c+b*d, РіРґРµ a Рё c - С†РµР»С‹Рµ С‡Р°СЃС‚Рё, b Рё d - РґСЂРѕР±РЅС‹Рµ
 		// (3+0.99) * -(3+0.99) = 9 + 2.97 + 2.97 + 0.9801 = -15.9201
 
-		// тут считаем a*c
+		// С‚СѓС‚ СЃС‡РёС‚Р°РµРј a*c
 		Double1 first_part;
 		first_part.integer = this->integer * tmp_val.integer;
 
-		// тут считаем b*d
+		// С‚СѓС‚ СЃС‡РёС‚Р°РµРј b*d
 		Double1 second_part;
 		second_part.fractional = this->fractional * tmp_val.fractional;
 		second_part.zeros_count = this->zeros_count + tmp_val.zeros_count;
@@ -265,7 +265,7 @@ Double1 Double1::operator*(const Double1& val) //перегрузка *
 			second_part.zeros_count += 1;
 		second_part.strip_zeros();
 
-		// тут считаем a*d
+		// С‚СѓС‚ СЃС‡РёС‚Р°РµРј a*d
 		Double1 third_part;
 		this->strip_zeros();
 		tmp_val.strip_zeros();
@@ -279,7 +279,7 @@ Double1 Double1::operator*(const Double1& val) //перегрузка *
 			third_part.zeros_count = tmp_val.zeros_count - (digits_count(this->integer * tmp_val.fractional) - digits_count(tmp_val.fractional));
 		}
 
-		// тут считаем b*c
+		// С‚СѓС‚ СЃС‡РёС‚Р°РµРј b*c
 		Double1 fourth_part;
 		this->strip_zeros();
 		tmp_val.strip_zeros();
@@ -303,51 +303,51 @@ Double1 Double1::operator*(const Double1& val) //перегрузка *
 	}
 }
 
-void Double1::operator+=(const Double1& val) { //перегрузка +=
+void Double1::operator+=(const Double1& val) { //РїРµСЂРµРіСЂСѓР·РєР° +=
 	*this = *this + val;
 }
 
-void Double1::operator-=(const Double1& val) { //перегрузка -=
+void Double1::operator-=(const Double1& val) { //РїРµСЂРµРіСЂСѓР·РєР° -=
 	*this = *this - val;
 }
 
-void Double1::operator*=(const Double1& val) {  //перегрузка *=
+void Double1::operator*=(const Double1& val) {  //РїРµСЂРµРіСЂСѓР·РєР° *=
 	*this = *this * val;
 }
 
-bool Double1::operator<(const Double1& val) //перегрузка <
+bool Double1::operator<(const Double1& val) //РїРµСЂРµРіСЂСѓР·РєР° <
 {
 	bool both_minus = false; 
 	if (this->minus_sign && val.minus_sign)
 		both_minus = true;
 	if (*this == val)
 		return false;
-	else if (this->minus_sign && !val.minus_sign) //первое отрицательное, второе положительное 
+	else if (this->minus_sign && !val.minus_sign) //РїРµСЂРІРѕРµ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРµ, РІС‚РѕСЂРѕРµ РїРѕР»РѕР¶РёС‚РµР»СЊРЅРѕРµ 
 		return true;
-	else if (!this->minus_sign && val.minus_sign) //первое положительное, второе отрицательное
+	else if (!this->minus_sign && val.minus_sign) //РїРµСЂРІРѕРµ РїРѕР»РѕР¶РёС‚РµР»СЊРЅРѕРµ, РІС‚РѕСЂРѕРµ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРµ
 		return false;
-	//сравниваем целые части
+	//СЃСЂР°РІРЅРёРІР°РµРј С†РµР»С‹Рµ С‡Р°СЃС‚Рё
 	else if (this->integer < val.integer)
 		return true ^ both_minus;
-	//возвращаем 1, если оба положительные и первое меньше второго и 0, если оба отрицательные и первое меньше второго
+	//РІРѕР·РІСЂР°С‰Р°РµРј 1, РµСЃР»Рё РѕР±Р° РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рµ Рё РїРµСЂРІРѕРµ РјРµРЅСЊС€Рµ РІС‚РѕСЂРѕРіРѕ Рё 0, РµСЃР»Рё РѕР±Р° РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рµ Рё РїРµСЂРІРѕРµ РјРµРЅСЊС€Рµ РІС‚РѕСЂРѕРіРѕ
 	else if (this->integer > val.integer)
 		return false ^ both_minus;
-	//возвращаем 0, если оба положительные и первое больше второго и 1, если оба отрицательные и первое больше второго
-	else if (this->fractional == 0 && val.fractional > 0) // проверяем дробные части на ноль
+	//РІРѕР·РІСЂР°С‰Р°РµРј 0, РµСЃР»Рё РѕР±Р° РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рµ Рё РїРµСЂРІРѕРµ Р±РѕР»СЊС€Рµ РІС‚РѕСЂРѕРіРѕ Рё 1, РµСЃР»Рё РѕР±Р° РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рµ Рё РїРµСЂРІРѕРµ Р±РѕР»СЊС€Рµ РІС‚РѕСЂРѕРіРѕ
+	else if (this->fractional == 0 && val.fractional > 0) // РїСЂРѕРІРµСЂСЏРµРј РґСЂРѕР±РЅС‹Рµ С‡Р°СЃС‚Рё РЅР° РЅРѕР»СЊ
 		return true ^ both_minus;
-	//возвращаем 1, если оба положительные, первое равно 0 и второе больше 0 и 0, если оба отрицательные, первое равно 0 и второе больше 0
+	//РІРѕР·РІСЂР°С‰Р°РµРј 1, РµСЃР»Рё РѕР±Р° РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рµ, РїРµСЂРІРѕРµ СЂР°РІРЅРѕ 0 Рё РІС‚РѕСЂРѕРµ Р±РѕР»СЊС€Рµ 0 Рё 0, РµСЃР»Рё РѕР±Р° РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рµ, РїРµСЂРІРѕРµ СЂР°РІРЅРѕ 0 Рё РІС‚РѕСЂРѕРµ Р±РѕР»СЊС€Рµ 0
 	else if (this->fractional > 0 && val.fractional == 0)
 		return false ^ both_minus;
-	//возвращаем 0, если оба положительные, первое больше 0 и второе равно 0 и 1, если оба отрицательные, первое больше 0 и второе равно 0
-	else if (this->zeros_count > val.zeros_count)// сравниваем количество нулей
+	//РІРѕР·РІСЂР°С‰Р°РµРј 0, РµСЃР»Рё РѕР±Р° РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рµ, РїРµСЂРІРѕРµ Р±РѕР»СЊС€Рµ 0 Рё РІС‚РѕСЂРѕРµ СЂР°РІРЅРѕ 0 Рё 1, РµСЃР»Рё РѕР±Р° РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рµ, РїРµСЂРІРѕРµ Р±РѕР»СЊС€Рµ 0 Рё РІС‚РѕСЂРѕРµ СЂР°РІРЅРѕ 0
+	else if (this->zeros_count > val.zeros_count)// СЃСЂР°РІРЅРёРІР°РµРј РєРѕР»РёС‡РµСЃС‚РІРѕ РЅСѓР»РµР№
 		return true ^ both_minus;
-	//возвращаем 1, если оба положительные и у первого количество нулей больше, чем у второго и 0, если оба отрицательные и
-	// у первого количество нулей больше, чем у второго
+	//РІРѕР·РІСЂР°С‰Р°РµРј 1, РµСЃР»Рё РѕР±Р° РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рµ Рё Сѓ РїРµСЂРІРѕРіРѕ РєРѕР»РёС‡РµСЃС‚РІРѕ РЅСѓР»РµР№ Р±РѕР»СЊС€Рµ, С‡РµРј Сѓ РІС‚РѕСЂРѕРіРѕ Рё 0, РµСЃР»Рё РѕР±Р° РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рµ Рё
+	// Сѓ РїРµСЂРІРѕРіРѕ РєРѕР»РёС‡РµСЃС‚РІРѕ РЅСѓР»РµР№ Р±РѕР»СЊС€Рµ, С‡РµРј Сѓ РІС‚РѕСЂРѕРіРѕ
 	else if (this->zeros_count < val.zeros_count)
 		return false ^ both_minus;
-	//возвращаем 0, если оба положительные и у первого количество нулей меньше, чем у второго и 1, если оба отрицательные и
-	// у первого количество нулей меньше, чем у второго
-	else { //сравниваем дробные части
+	//РІРѕР·РІСЂР°С‰Р°РµРј 0, РµСЃР»Рё РѕР±Р° РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рµ Рё Сѓ РїРµСЂРІРѕРіРѕ РєРѕР»РёС‡РµСЃС‚РІРѕ РЅСѓР»РµР№ РјРµРЅСЊС€Рµ, С‡РµРј Сѓ РІС‚РѕСЂРѕРіРѕ Рё 1, РµСЃР»Рё РѕР±Р° РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рµ Рё
+	// Сѓ РїРµСЂРІРѕРіРѕ РєРѕР»РёС‡РµСЃС‚РІРѕ РЅСѓР»РµР№ РјРµРЅСЊС€Рµ, С‡РµРј Сѓ РІС‚РѕСЂРѕРіРѕ
+	else { //СЃСЂР°РІРЅРёРІР°РµРј РґСЂРѕР±РЅС‹Рµ С‡Р°СЃС‚Рё
 		int frac_digits_diff = this->frac_digits_count() - val.frac_digits_count();
 		unsigned int pow_result;
 		if (frac_digits_diff > 0) {
@@ -359,34 +359,34 @@ bool Double1::operator<(const Double1& val) //перегрузка <
 			return ((this->fractional * pow_result) < val.fractional) ^ both_minus;
 		}
 	}
-	//возвращаем 1, если оба положительные и у первого дробная часть меньше, чем у второго 
-	//возвращаем 0, если оба положительные и у первого дробная часть больше, чем у второго 
-	//возвращаем 0, если оба отрицательные и у первого дробная часть меньше, чем у второго 
-	//возвращаем 1, если оба отрицательные и у первого дробная часть больше, чем у второго 
+	//РІРѕР·РІСЂР°С‰Р°РµРј 1, РµСЃР»Рё РѕР±Р° РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рµ Рё Сѓ РїРµСЂРІРѕРіРѕ РґСЂРѕР±РЅР°СЏ С‡Р°СЃС‚СЊ РјРµРЅСЊС€Рµ, С‡РµРј Сѓ РІС‚РѕСЂРѕРіРѕ 
+	//РІРѕР·РІСЂР°С‰Р°РµРј 0, РµСЃР»Рё РѕР±Р° РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рµ Рё Сѓ РїРµСЂРІРѕРіРѕ РґСЂРѕР±РЅР°СЏ С‡Р°СЃС‚СЊ Р±РѕР»СЊС€Рµ, С‡РµРј Сѓ РІС‚РѕСЂРѕРіРѕ 
+	//РІРѕР·РІСЂР°С‰Р°РµРј 0, РµСЃР»Рё РѕР±Р° РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рµ Рё Сѓ РїРµСЂРІРѕРіРѕ РґСЂРѕР±РЅР°СЏ С‡Р°СЃС‚СЊ РјРµРЅСЊС€Рµ, С‡РµРј Сѓ РІС‚РѕСЂРѕРіРѕ 
+	//РІРѕР·РІСЂР°С‰Р°РµРј 1, РµСЃР»Рё РѕР±Р° РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рµ Рё Сѓ РїРµСЂРІРѕРіРѕ РґСЂРѕР±РЅР°СЏ С‡Р°СЃС‚СЊ Р±РѕР»СЊС€Рµ, С‡РµРј Сѓ РІС‚РѕСЂРѕРіРѕ 
 }
 
-bool Double1::operator<=(const Double1& val) //перегрузка <=
+bool Double1::operator<=(const Double1& val) //РїРµСЂРµРіСЂСѓР·РєР° <=
 {
 	return (*this < val) || (*this == val);
 }
 
-bool Double1::operator>(const Double1& val) //перегрузка >
+bool Double1::operator>(const Double1& val) //РїРµСЂРµРіСЂСѓР·РєР° >
 {
 	return !(*this < val) && !(*this == val);
 }
 
-bool Double1::operator>=(const Double1& val) //перегрузка >=
+bool Double1::operator>=(const Double1& val) //РїРµСЂРµРіСЂСѓР·РєР° >=
 {
 	return (*this > val) || (*this == val);
 }
 
-bool Double1::operator==(const Double1& val) //перегрузка ==
+bool Double1::operator==(const Double1& val) //РїРµСЂРµРіСЂСѓР·РєР° ==
 {
 	return (this->integer == val.integer) && (this->fractional == val.fractional) &&
 		(this->zeros_count == val.zeros_count) && (this->minus_sign == val.minus_sign);
 }
 
-bool Double1::operator!=(const Double1& val) //перегрузка !=
+bool Double1::operator!=(const Double1& val) //РїРµСЂРµРіСЂСѓР·РєР° !=
 {
 	return !(*this == val);
 }
